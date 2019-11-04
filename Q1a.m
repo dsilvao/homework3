@@ -14,4 +14,5 @@ for l = 1:4
     x(:,indices) = mvnrnd(m(:,l),Sigma(:,:,l),length(indices))';
     figure(1), plot(x(1,indices),x(2,indices),'.','MarkerFaceColor',colorList(l)); axis equal, hold on,
 end
-
+T = array2table(x.'); 
+part = cvpartition(T.Var1,'KFold',10);
